@@ -70,7 +70,6 @@ Docker image. You need to build them like that:
 ```
 cd $GOPATH/src/k8s.io/kubernetes
 build/run.sh make
-build/copy-output.sh
 cd cluster/images/hyperkube
 make VERSION=latest
 ```
@@ -89,7 +88,7 @@ Then you can build CNI by doing:
 
 ```
 cd cni
-./build.sh
+./build
 ```
 
 And then configure CNI networks needed by kubeadm-systemd:
@@ -127,7 +126,7 @@ In the directory where you cloned this repository, please do:
 
 ```
 make
-sudo GOPATH=$GOPATH SYSTEMD_NSPAWN_PATH=<path_to_your_nspawn_binary> ./kubeadm-systemd -nodes <number_of_nodes>
+sudo GOPATH=$GOPATH SYSTEMD_NSPAWN_PATH=<path_to_your_nspawn_binary> ./kubeadm-systemd up --nodes <number_of_nodes>
 ```
 
 Sometimes when you Docker doesn't use the newest existing API, you may see
