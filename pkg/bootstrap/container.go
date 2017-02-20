@@ -126,7 +126,7 @@ func BootstrapContainer(name string) error {
 		return err
 	}
 
-	log.Println("Bootstraped container")
+	log.Println("Bootstrapped container")
 
 	return nil
 }

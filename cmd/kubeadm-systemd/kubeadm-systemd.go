@@ -84,7 +84,7 @@ func runUp(cmd *cobra.Command, args []string) {
 				log.Fatal("Error when extracting image: ", err)
 			}
 			if err := bootstrap.BootstrapContainer(name); err != nil {
-				log.Fatal("Error when bootstraping container :", err)
+				log.Fatal("Error when bootstrapping container :", err)
 			}
 		}
 
