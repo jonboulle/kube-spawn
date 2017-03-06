@@ -32,3 +32,8 @@ cat >/etc/kubeadm/kubeadm.yml <<-EOF
 AuthorizationMode: AlwaysAllow
 KubernetesVersion: latest
 EOF
+
+cat >>/etc/systemd/system/kubelet.service.d/20-kubeadm-extra-args.conf <<-EOF
+[Service]
+Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=systemd"
+EOF
