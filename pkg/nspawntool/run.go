@@ -68,6 +68,6 @@ func RunContainer(name string) (string, error) {
 		return "", err
 	}
 
-	log.Printf("Container %s running\n", name)
+	log.Printf("Container %s running (%s)\n", name, cniData.IP4.IP.IP.String())
 	return cniData.IP4.IP.IP.String(), nil
 }
