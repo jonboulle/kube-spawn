@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 echo "kubernetes" | passwd --stdin root
 
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -23,7 +25,7 @@ cat >>/etc/sysconfig/docker <<-EOF
 INSECURE_REGISTRY='--insecure-registry=10.22.0.1:5000'
 EOF
 
-systemctl daemon-reload
+systemctl daemon-reload || true
 systemctl enable docker.service
 systemctl enable sshd.service
 
