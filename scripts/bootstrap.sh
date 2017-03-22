@@ -25,6 +25,10 @@ cat >>/etc/sysconfig/docker <<-EOF
 INSECURE_REGISTRY='--insecure-registry=10.22.0.1:5000'
 EOF
 
+cat >/etc/sysconfig/docker-storage <<-EOF
+DOCKER_STORAGE_OPTIONS=--storage-driver=overlay
+EOF
+
 systemctl daemon-reload || true
 systemctl enable docker.service
 systemctl enable sshd.service
