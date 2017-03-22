@@ -7,7 +7,7 @@ echo "kubernetes" | passwd --stdin root
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 yum -y install \
-	docker \
+	docker-1.10.3 \
 	openssh-server \
 	bind-utils \
 	ebtables \
