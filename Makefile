@@ -13,3 +13,7 @@ update-vendor: check-glide-installation
 	glide update --strip-vendor
 
 .PHONY: check-glide-installation install-vendor update-vendor all
+
+clean:
+	rm -rf ./{kubeadm-systemd,cni-noop,cnispawn}
+	sudo rm -rf kubeadm-systemd-*
