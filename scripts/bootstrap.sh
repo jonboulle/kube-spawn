@@ -37,5 +37,5 @@ EOF
 
 cat >>/etc/systemd/system/kubelet.service.d/20-kubeadm-extra-args.conf <<-EOF
 [Service]
-Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=systemd"
+Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"
 EOF
