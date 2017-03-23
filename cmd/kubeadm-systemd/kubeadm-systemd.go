@@ -112,6 +112,9 @@ func runUp(cmd *cobra.Command, args []string) {
 
 	for _, nodeIpAddress := range nodeIpAddresses {
 		if err := ssh.JoinNode(nodeIpAddress, token, masterIpAddresses[0]); err != nil {
+			// if err := nspawntool.Cleanup(nodes); err != nil {
+			// 	log.Fatal("Error when cleaning up: ", err)
+			// }
 			log.Fatal("Error when joining node: ", err)
 		}
 	}
