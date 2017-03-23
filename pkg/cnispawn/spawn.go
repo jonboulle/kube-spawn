@@ -60,8 +60,8 @@ func RunContainer(path string, background bool) error {
 	}
 
 	env := os.Environ()
-	// env = append(env, "SYSTEMD_NSPAWN_MOUNT_RW=true")
-	env = append(env, "SYSTEMD_NSPAWN_API_VFS_WRITABLE=true")
+	env = append(env, "SYSTEMD_NSPAWN_MOUNT_RW=1")
+	env = append(env, "SYSTEMD_NSPAWN_API_VFS_WRITABLE=1")
 	env = append(env, "SYSTEMD_NSPAWN_USE_CGNS=0")
 
 	if background {
