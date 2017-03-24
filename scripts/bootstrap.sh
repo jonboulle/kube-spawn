@@ -7,19 +7,22 @@ echo "kubernetes" | passwd --stdin root
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 yum -y install \
-	docker-1.10.3 \
-	openssh-server \
 	bind-utils \
+	docker-1.10.3 \
 	ebtables \
 	ethtool \
+	iproute \
+	iptables-services \
+	jq \
+	less \
+	netcat \
 	net-tools \
+	openssh-server \
 	socat \
 	strace \
-	jq \
-	wget \
-	iproute \
+	tmux \
 	util-linux \
-	tmux
+	wget
 
 cat >>/etc/sysconfig/docker <<-EOF
 INSECURE_REGISTRY='--insecure-registry=10.22.0.1:5000'
