@@ -26,7 +26,11 @@ INSECURE_REGISTRY='--insecure-registry=10.22.0.1:5000'
 EOF
 
 cat >/etc/sysconfig/docker-storage <<-EOF
-DOCKER_STORAGE_OPTIONS=--storage-driver=overlay
+DOCKER_STORAGE_OPTIONS="--storage-driver overlay"
+EOF
+
+cat >/etc/sysconfig/docker-storage-setup <<-EOF
+STORAGE_DRIVER="overlay"
 EOF
 
 systemctl daemon-reload || true
