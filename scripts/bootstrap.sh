@@ -15,8 +15,9 @@ yum -y install \
 	iptables-services \
 	jq \
 	less \
-	netcat \
+	nc \
 	net-tools \
+	nmap \
 	openssh-server \
 	socat \
 	strace \
