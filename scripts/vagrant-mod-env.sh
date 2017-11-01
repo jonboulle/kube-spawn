@@ -44,3 +44,9 @@ modprobe nf_conntrack
 NF_HASHSIZE=/sys/module/nf_conntrack/parameters/hashsize
 
 [ -f ${NF_HASHSIZE} ] && echo "131072" > ${NF_HASHSIZE}
+
+# systemd-nspawn containers are not able to resolve DNS, if systemd-resolved
+# is running on the host.
+# As workaround, we need to disable stub listener of systemd-resolved for now.
+sudo sed -i -e 's/^#*.*DNSStubListener=.*$/DNSStubListener=no/' /etc/systemd/resolved.conf
+systemctl is-active systemd-resolved >& /dev/null && sudo systemctl restart systemd-resolved
