@@ -12,7 +12,7 @@ VERSION=$(shell git describe --tags --always --dirty)
 ifeq ($(DOCKERIZED),y)
 all:
 	docker build -t kube-spawn-build:$(DOCKER_TAG) -f Dockerfile.build .
-	docker run --rm -ti \
+	docker run --rm \
 		-v `pwd`:/go/src/github.com/kinvolk/kube-spawn:Z \
 		--user $(UID):$(UID) \
 		kube-spawn-build
